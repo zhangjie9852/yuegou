@@ -18,7 +18,7 @@
 <div class="wrap bg-gray">
     <form action="#" method="post" id="editAddrForm">
     	<div class="form-container">
-        	<div class="f-title">填写联系人地址信息</div>
+        	<div class="f-title">填写联系人地址信息1</div>
         	<div class="form-row">
                 <div class="input-box">
                     <input type="text" placeholder="联系人" id="linkman">
@@ -61,7 +61,7 @@
                     <input type="text" placeholder="详细地址" id="addr">
                     <i></i>
                 </div>
-            </div>            
+            </div>
             <div class="Validform_checktip validform-msg"></div>
             <div class="remember m-t-md">
             	<div class="chk">
@@ -78,7 +78,7 @@
 <script>
 $(function(){
 	clearInput(".input-box input",".input-box i");
-	
+
 	$(".chk i").click(function(){
 		$(this).toggleClass("checked");
 	})
@@ -89,7 +89,7 @@ $(function(){
 	$.extend($.Datatype,{
 		"tel" : /\d{3}-\d{8}|\d{4}-\d{7}/
 	});
-	
+
 	var reg=$("#editAddrForm").Validform({
 		btnSubmit:".btn",
 		showAllError:false,
@@ -103,7 +103,7 @@ $(function(){
 				}else{
 					objtip.hide();
 				}
-				
+
 			}
 		}
 	});
