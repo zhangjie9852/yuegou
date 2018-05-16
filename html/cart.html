@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>购物车</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="../static/css/comm.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/hejia.js"></script>
+  </head>
+<body>
+    <div class="wrap bg-white">
+    	<header class="header-bar">
+            <div class="header-title"></div>
+            <div class="drop-nav">
+                <a href="cart_edit.html" class="cart-edit">编辑</a>
+            </div>
+        </header>
+
+        <div class="cart-body">
+            <ul class="cart-list">
+                <li class="cart-item sold-out">
+                    <div class="chk"><i></i></div>
+                    <div class="cart-item-details">
+                        <a href="detail.html">
+                            <img src="../static/images/src/img1.jpg" />
+                            <span>该商品已下架</span>
+                        </a>
+                        <div class="cart-item-info">
+                            <a href="detail.html" class="item-name">趣味小树婴幼声光积木珠算早教电子琴智慧树 </a>
+                            <div class="item-type"><em>宝宝健身架</em><em>实惠装</em></div>
+                            <div class="cart-info-btm clearfix">
+                                <span class="hejia-fl cart-goods-price">￥<em>299.00</em></span>
+                                <div class="cart-num hejia-fr">
+                                    <span class="num-cut"><i></i></span>
+                                    <input type="text" value="1" />
+                                    <span class="num-add"><i></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="cart-item">
+                    <div class="chk"><i></i></div>
+                    <div class="cart-item-details">
+                        <a href="detail.html">
+                            <img src="../static/images/src/img1.jpg" />
+                        </a>
+                        <div class="cart-item-info">
+                            <a href="detail.html" class="item-name">Fehn 游戏毯 3-D Activity Decke Monkey Donkey</a>
+                            <div class="item-type"><em>进口原木</em></div>
+                            <div class="cart-info-btm clearfix">
+                                <span class="hejia-fl cart-goods-price">￥<em>199.00</em></span>
+                                <div class="cart-num hejia-fr">
+                                    <span class="num-cut"><i></i></span>
+                                    <input type="text" value="1" />
+                                    <span class="num-add"><i></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="cart-item">
+                    <div class="chk"><i></i></div>
+                    <div class="cart-item-details">
+                        <a href="detail.html">
+                            <img src="../static/images/src/img1.jpg" />
+                        </a>
+                        <div class="cart-item-info">
+                            <a href="detail.html" class="item-name">儿童串珠大绕珠益智早教男女孩婴儿智力玩具</a>
+                            <div class="item-type"><em>进口原木</em></div>
+                            <div class="cart-info-btm clearfix">
+                                <span class="hejia-fl cart-goods-price">￥<em>2.00</em></span>
+                                <div class="cart-num hejia-fr">
+                                    <span class="num-cut"><i></i></span>
+                                    <input type="text" value="2" />
+                                    <span class="num-add"><i></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="cart-payment">
+            <div class="chk box-flex all-chk">
+                <i></i>
+                全选
+            </div>
+            <div class="cart-total box-flex">
+                <p>合计：<em class="total_money">0.00</em></p>                
+            </div>
+            <a href="order_confirm.html" class="cart-pay-btn btn box-flex btn-a">去结算<em class=
+            "total_goods">(0)</em></a>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {            
+			//计算总数和总价
+			function total_goods(){
+				var total_goods = 0;//商品总数量
+				var total_money = 0;//总费用
+				$(".cart-item").each(function(){
+                    if(!$(this).hasClass("sold-out") && $(this).find(".chk i").hasClass("checked")){
+                        var goodsMoney = parseInt($(this).find(".cart-goods-price em").text());
+                        var goodsNum=parseInt($(this).find(".cart-num input").val());
+                        total_goods += goodsNum;
+                        total_money += parseInt(goodsMoney*goodsNum);
+                    }
+                })
+				$(".total_goods").text("("+total_goods+")");
+                $(".total_money").text(total_money);
+			}
+            $(".num-add").click(function(){
+				//商品数量
+				var valNum=parseInt($(this).siblings(".cart-num input").val());
+				
+                if(!$(this).parents("li").hasClass("sold-out")){
+                    valNum++;
+                    $(this).siblings(".cart-num input").val(valNum);
+                    total_goods();//计算总数和总价
+                }  
+            });
+			
+            $(".num-cut").click(function(){
+				var valNum=parseInt($(this).siblings(".cart-num input").val());//商品数量
+                if(!$(this).parents("li").hasClass("sold-out")){
+                    if(valNum>1){
+                        valNum--;
+                        $(this).siblings(".cart-num input").val(valNum);
+                    };
+                    total_goods();//计算总数和总价
+                }
+            });
+            //购物车计算
+            //全选
+            $(".all-chk i").click(function(){
+                $(this).toggleClass("checked");
+				if($(this).hasClass("checked")){
+                    $(".cart-item").not($(".sold-out")).find(".chk i").addClass("checked");
+                }else{
+                    $(".cart-item").not($(".sold-out")).find(".chk i").removeClass("checked");
+                }
+                total_goods();//计算总数和总价
+            });
+            //单选
+            $(".cart-item .chk i").click(function(){
+                if(!$(this).parents("li").hasClass("sold-out")){
+                    $(this).toggleClass("checked");
+                }
+				var all_chk = true;
+                $(".cart-item .chk i").each(function(){
+                    if(!$(this).parents("li").hasClass("sold-out")){
+                        if(!$(this).hasClass("checked")){
+                            all_chk = false;
+                        }
+                        if(all_chk){
+                            $(".all-chk i").addClass("checked");
+                        }else{
+                            $(".all-chk i").removeClass("checked");
+                        }
+                    }
+                });
+                total_goods();//计算总数和总价
+            })
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>购物车-编辑</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="../static/css/comm.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/hejia.js"></script>
+  </head>
+<body>
+    <div class="wrap bg-white">
+        <header class="header-bar">            
+            <div class="header-title"></div>
+            <div class="drop-nav">
+                <a class="cart-edit">完成</a>                
+            </div>
+        </header>
+        <div class="cart-body cart-edit-body">
+            <ul class="cart-list">
+                <li class="cart-item sold-out">
+                    <div class="chk"><i></i></div>
+                    <div class="cart-item-details">
+                        <a href="#">
+                            <img src="../static/images/src/img1.jpg" />
+                            <span>该商品已下架</span>
+                        </a>
+                        <div class="cart-item-info">
+                            <a href="#" class="item-name">趣味小树婴幼声光积木珠算早教电子琴智慧树</a>
+                            <div class="item-type item-type-popup"><em>绿色</em></div>
+                            <div class="cart-info-btm clearfix">
+                                <span class="hejia-fl">￥<em>300.00</em></span>
+                                <div class="cart-num hejia-fr">
+                                    <span class="num-cut"><i></i></span>
+                                    <input type="text" value="1" />
+                                    <span class="num-add"><i></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="cart-item">
+                    <div class="chk"><i></i></div>
+                    <div class="cart-item-details">
+                        <a href="detail.html">
+                            <img src="../static/images/src/img1.jpg" />
+                        </a>
+                        <div class="cart-item-info">
+                            <a href="detail.html" class="item-name">Fehn 游戏毯 3-D Activity Decke
+Monkey Donkey</a>
+                            <div class="item-type item-type-popup"><em>宝宝健身架</em><em>实惠装</em></div>
+                            <div class="cart-info-btm clearfix">
+                                <span class="hejia-fl">￥<em>299.00</em></span>
+                                <div class="cart-num hejia-fr">
+                                    <span class="num-cut"><i></i></span>
+                                    <input type="text" value="1" />
+                                    <span class="num-add"><i></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="cart-item">
+                    <div class="chk"><i></i></div>
+                    <div class="cart-item-details">
+                        <a href="detail.html">
+                            <img src="../static/images/src/img1.jpg" />
+                        </a>
+                        <div class="cart-item-info">
+                            <a href="detail.html" class="item-name">儿童串珠大绕珠益智早教男女孩婴儿智力玩具</a>
+                            <div class="item-type item-type-popup"><em>进口原木</em></div>
+                            <div class="cart-info-btm clearfix">
+                                <span class="hejia-fl">￥<em>199.00</em></span>
+                                <div class="cart-num hejia-fr">
+                                    <span class="num-cut"><i></i></span>
+                                    <input type="text" value="1" />
+                                    <span class="num-add"><i></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="null-body hide">
+            <div class="null-img">
+                <img src="../static/images/null_cart.png" />
+            </div>
+            <p>您的购物车还没有商品哦！</p>
+            <a href="index.html" class="btn btn-a">逛一逛</a>
+        </div>
+        <div class="cart-edit-btm">
+            <div class="chk box-flex all-chk">
+                <i></i>
+                全选
+            </div>
+            <button class="btn-delete btn btn-a">删除</button>
+        </div>
+    </div>
+    <!--灰色遮罩层-->
+    <div class="popup-mask"></div>
+    <!--商品属性弹出层-->
+    <div class="popup property">
+        <i class="closed"></i>
+        <div class="al-img">
+            <img src="../static/images/src/img1.jpg">
+        </div>
+        <div class="al-info">
+            <p class="al-info-price">¥ 299.00</p>
+            <p>库存 <em class="stock-num">9</em> 件</p>
+        </div>
+        <div class="popup-con">
+            <div class="choose-type">
+                <h3>颜色</h3>
+                <div class="choose-type-list">
+                    <span class="choosed">荣耀金</span>
+                    <span>冰河银</span>
+                    <span>雅典银</span>
+                    <span>晨曦金</span>
+                </div>
+            </div>            
+        </div>
+        <div class="btn-bottom">
+            <button class="btn btn-a btn-sure">确定</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //关闭弹出层
+            closedPopup();
+            //选择属性
+            $(".choose-type-list span").click(function(){
+                $(this).addClass("choosed");
+                $(this).siblings().removeClass("choosed");
+            });
+            //属性弹出层
+            $(".item-type-popup").click(function(){
+                $(".popup-mask,.property").show();
+                $("html").addClass("popup-move");
+            });
+            //商品剩余数量
+            var stockNum=parseInt($(".stock-num").text());
+            //弹出层数量更改
+            var valNum=parseInt($(".choose-num input").val());
+            $(".num-add").click(function(){
+                if(valNum<stockNum){
+                    valNum++;
+                    $(".choose-num input").val(valNum)
+                }
+            });
+            $(".num-cut").click(function(){
+                if(valNum>1){
+                    valNum--;
+                    $(".choose-num input").val(valNum)
+                }
+            });
+            $(".num-add").click(function(){
+                //商品数量
+                var valNum=parseInt($(this).siblings(".cart-num input").val());
+                
+                if(!$(this).parents("li").hasClass("sold-out")){
+                    if(valNum < stockNum){
+                        valNum++;
+                        $(this).siblings(".cart-num input").val(valNum);
+                    };
+                }  
+            });
+            
+            $(".num-cut").click(function(){
+                var valNum=parseInt($(this).siblings(".cart-num input").val());//商品数量
+                if(!$(this).parents("li").hasClass("sold-out")){
+                    if(valNum>1){
+                        valNum--;
+                        $(this).siblings(".cart-num input").val(valNum);
+                    };
+                }
+            });
+            //购物车计算
+            //全选
+            $(".all-chk i").click(function(){
+                $(this).toggleClass("checked");
+                if($(this).hasClass("checked")){
+                    $(".cart-item").find(".chk i").addClass("checked");
+                    $(".cart-edit-btm .btn-delete").click(function(){
+                        $(".cart-body").remove();
+                        $(".cart-edit-btm").remove();
+						$(".wrap").removeClass("bg-white").addClass("bg-gray");
+						$(".header-bar").hide();
+                        $(".null-body").show();
+                    });
+                }else{
+                    $(".cart-item").find(".chk i").removeClass("checked");
+                }
+            });
+            //单选
+            $(".cart-item .chk i").click(function(){
+                $(this).toggleClass("checked");
+                var all_chk = true;
+                $(".cart-item .chk i").each(function(){
+                    if(!$(this).hasClass("checked")){
+                            all_chk = false;
+                    }
+                    if(all_chk){
+                        $(".all-chk i").addClass("checked");
+                    }else{
+                        $(".all-chk i").removeClass("checked");
+                    }
+                });
+            });
+            //删除功能
+            $(".btn-delete").click(function(){
+                $(".cart-item").each(function(){
+                    if($(this).find(".chk i").hasClass("checked")){
+                        $(this).remove();
+                    }
+                })                
+            });
+        });
+    </script>
+</body>
+</html>

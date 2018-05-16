@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<title>新增收货地址</title>
+<link href="../static/css/comm.css" rel="stylesheet" type="text/css">
+<link href="../static/css/main.css" rel="stylesheet" type="text/css">
+<link href="../static/lib/Validform/css/style-simplify.css" rel="stylesheet" type="text/css">
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/main.js"></script>
+<script src="../static/js/hejia.js"></script>
+<script src="../static/lib/Validform/js/Validform_min.js"></script>
+</head>
+
+<body>
+<div class="wrap bg-gray">
+    <form action="#" method="post" id="editAddrForm">
+    	<div class="form-container">
+        	<div class="f-title">填写联系人地址信息</div>
+        	<div class="form-row">
+                <div class="input-box">
+                    <input type="text" placeholder="联系人" id="linkman">
+                    <i></i>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-box">
+                    <input type="text" placeholder="联系电话" id="tel">
+                    <i></i>
+                </div>
+            </div>
+            <div class="form-row">
+            	<div class="select-addr clearfix">
+                    <div class="select-box hejia-fl">
+                        <select>
+                            <option selected>安徽省</option>
+                            <option>北京</option>
+                            <option>上海</option>
+                        </select>
+                    </div>
+                    <div class="select-box hejia-fl">
+                        <select>
+                            <option selected>合肥市</option>
+                            <option>安庆市</option>
+                            <option>六安市</option>
+                        </select>
+                    </div>
+                    <div class="select-box hejia-fl">
+                        <select>
+                            <option selected>蜀山区</option>
+                            <option>政务区</option>
+                            <option>高新区</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-box">
+                    <input type="text" placeholder="详细地址" id="addr">
+                    <i></i>
+                </div>
+            </div>            
+            <div class="Validform_checktip validform-msg"></div>
+            <div class="remember m-t-md">
+            	<div class="chk">
+                	<i class="checked"></i>
+                    <span>设为默认地址</span>
+                </div>
+            </div>
+            <div class="form-btn m-t-md">
+            	<a href="#" class="btn btn-a">保存</a>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+$(function(){
+	clearInput(".input-box input",".input-box i");
+	
+	$(".chk i").click(function(){
+		$(this).toggleClass("checked");
+	})
+})
+</script>
+<script>
+$(function(){
+	$.extend($.Datatype,{
+		"tel" : /\d{3}-\d{8}|\d{4}-\d{7}/
+	});
+	
+	var reg=$("#editAddrForm").Validform({
+		btnSubmit:".btn",
+		showAllError:false,
+		tiptype:function(msg,o,cssctl){
+			if(!o.obj.is("form")){
+				var objtip=$(".Validform_checktip");
+				cssctl(objtip,o.type);
+				objtip.text(msg);
+				if(!objtip.hasClass("Validform_right")){
+					objtip.show();
+				}else{
+					objtip.hide();
+				}
+				
+			}
+		}
+	});
+	reg.addRule([
+		{
+			ele:"#linkman",
+			datatype:"*",
+			nullmsg:"请输入联系人"
+		},
+		{
+			ele:"#tel",
+			datatype:"m | tel",
+			nullmsg:"请输入联系电话",
+			errormsg:"请输入正确的联系电话"
+		},
+		{
+			ele:"#addr",
+			datatype:"*",
+			nullmsg:"请输入联系地址"
+		}
+	]);
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<title>选择收货地址</title>
+<link href="../static/css/comm.css" rel="stylesheet" type="text/css">
+<link href="../static/css/main.css" rel="stylesheet" type="text/css">
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/main.js"></script>
+</head>
+
+<body>
+<div class="wrap bg-gray">
+    <div class="order-info-box">
+    	<div class="receive-addr selected-addr">
+        	<div class="chk">
+                <i class="checked"></i>
+            </div>
+        	<a href="javascript:history.go(-1)" class="receiver-info rec-a">
+                <div class="receiver">
+                    <span>王大富</span>
+                    <span>15155100688</span>
+                    <span class="label">默认收货地址</span>
+                </div>
+                <div class="addr">安徽省 合肥市 蜀山区 程村北路，松芝万象城A座1530室 松芝万象城A座1530室</div>
+            </a>
+        </div>
+        <div class="receive-addr">
+        	<div class="chk">
+                <i class="checked"></i>
+            </div>
+        	<a href="javascript:history.go(-1)" class="receiver-info rec-a">
+                <div class="receiver">
+                    <span>张大民</span>
+                    <span>13155100699</span>
+                </div>
+                <div class="addr">北京市 西城区 新街口，新开胡同，新街口西里 三期156栋602室</div>
+            </a>            
+        </div>
+    </div>
+    <div class="conf-box"><a href="add_address.html" class="btn btn-a"><i class="add-icon"></i>新增收货地址</a></div>
+</div>
+<script>
+$(function(){
+	$(".receive-addr .receiver-info").click(function(){
+		$(this).parent().addClass("selected-addr").siblings().removeClass("selected-addr");
+	})
+})
+</script>
+</body>
+</html>

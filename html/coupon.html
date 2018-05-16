@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<title>选择优惠券</title>
+<link href="../static/css/comm.css" rel="stylesheet" type="text/css">
+<link href="../static/css/main.css" rel="stylesheet" type="text/css">
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/main.js"></script>
+</head>
+
+<body>
+<div class="wrap bg-white">
+    <ul class="coupon-list">        
+        <li>
+            <div class="coupon-left">
+                <h3 class="org-font">优惠券测试</h3>
+                <p>满30减5</p>
+                <span>有效期至：2018-04-27 00:00:00</span>
+            </div>
+            <div class="coupon-right">
+                <div>
+                    <p class="org-font"><span class="font30">￥</span><span class="font54">100</span></p>
+                </div>
+                <i></i>
+            </div>
+        </li>
+        <li>
+            <div class="coupon-left">
+                <h3 class="org-font">优惠券测试</h3>
+                <p>满30减5</p>
+                <span>有效期至：2018-04-27 00:00:00</span>
+            </div>
+            <div class="coupon-right">
+                <div>
+                    <p class="org-font"><span class="font30">￥</span><span class="font54">100</span></p>
+                </div>
+                <i></i>
+            </div>
+        </li>      
+    </ul>
+    <div class="bg-wt"></div>   
+</div>
+
+<script>
+$(function(){
+    $(".coupon-list li").click(function(){
+        $(this).addClass("selected").siblings().removeClass("selected");
+    })
+})
+</script>
+</body>
+</html>

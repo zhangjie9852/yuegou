@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>支付</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="../static/css/comm.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/main.js"></script>
+  </head>
+
+<body>
+	<div class="wrap">    	
+        <form action="pay_echo.html" method="get">
+        <div class="category-tit">
+            <span>选择支付方式</span>
+        </div>
+        <div class="pay-box">        	
+            <div class="pay-list clearfix" data-val="1">
+                <i class="pay-icon balance"></i>
+                <div class="pay-title">
+                    <p>余额支付<em>（余额：￥80.00）</em></p>                    
+                </div>
+                <div class="chk m-t hejia-fr"><i></i></div>
+            </div>
+            <div class="pay-list clearfix" data-val="2">
+                <i class="pay-icon wxpay"></i>
+                <div class="pay-title">
+                    <p>微信支付</p>                    
+                </div>
+                <div class="chk m-t hejia-fr"><i></i></div>
+            </div>
+            <input type="hidden" class="pay_method" />
+        </div>
+        <div class="pay-foot">
+            <span>合计：<em>￥300.86</em></span>
+            <button type="submit" class="btn btn-a">确认支付</button>
+        </div>
+        </form>
+    </div>
+    <script>
+    	$(document).ready(function(e) {
+			$(".pay-box .pay-list").on("click",function(){
+				var pm_val = $(this).attr("data-val");
+				$(this).find(".chk i").parents(".pay-list").siblings().find(".chk i").removeClass("checked");
+				$(this).find(".chk i").addClass("checked");
+				$(".pay_method").val(pm_val);
+			})
+        });
+    </script>
+</body>
+</html>

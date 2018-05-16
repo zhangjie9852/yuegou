@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>商品详情页</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="../static/css/comm.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/hejia.js"></script>
+    <!--图片切换-->
+    <link rel="stylesheet" href="../static/lib/swiper/swiper.min.css">
+    <script src="../static/lib/swiper/swiper.min.js"></script>
+    <!--弹出层-->
+    <script src="../static/lib/layer/layer.js"></script>
+  </head>
+  <body>
+    <div class="wrap">        
+        <div class="det-cont">
+        	<div class="pro-slider">
+                <ul class="swiper-wrapper clearfix">
+                    <li class="swiper-slide">
+                        <a href="#" style="background-image:url(../static/images/src/banner1.png)"></a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="#" style="background-image:url(../static/images/src/banner2.png)"></a>
+                    </li>
+                </ul>
+                <div class="cooperation_page"></div>
+            </div>
+            <!--商品-->
+            <div class="det-goods">
+                <!--商品信息-->
+                <div class="box-con det-goods-info">                    
+                    <ul class="goods-info-list">
+                        <li class="goods-name">趣味小树婴幼声光积木珠算早教电子琴智慧树</li>
+                        <li class="goods-money">¥ 278.00 <em>￥305.00</em></li>
+                        <li class="goods-des">拥有多种玩法功能，是培养小孩子学习的好伙伴。有电子琴功能，让小孩子学习弹奏乐曲，太阳会闪光。弹奏的同时动物头像会随之伸缩，认识动物的同时辨认不同的颜色。</li>
+                    </ul>
+                </div>
+                <!--商品规格-->
+                <div class="box-con title-con m-t-md set-meal clearfix">
+                    <div class="title-box hejia-fl">
+                        <label>选择</label>
+                        <span>规格套餐</span>
+                    </div>
+                    <span class="hejia-fr more">
+                        <i class="more-icon"></i>
+                    </span>
+                </div>
+                <!--配送地址-->
+                <div class="box-con border-top">
+                    <div class="adr-con clearfix">
+                        <div class="title-box hejia-fl" id="<span>">
+                            <label>送至</label>
+                            <span class="det-adr"><i></i><span class="n-address">安徽 合肥市 蜀山区</span></span>
+                        </div>
+                        <span class="hejia-fr more">
+                            <i class="more-icon"></i>
+                        </span>
+                    </div>
+                    <div class="title-box p-b-md">
+                        <label>运费</label>
+                        <span>免运费</span>
+                    </div>                                        
+                </div>
+                <!--详情-->
+                <div class="wareinfo bg-white m-t-md">
+                    <img src="../static/images/src/winfo1.gif" />
+                    <img src="../static/images/src/winfo2.gif" />
+                    <img src="../static/images/src/winfo3.gif" />
+                    <img src="../static/images/src/winfo4.gif" />
+                    <img src="../static/images/src/winfo5.gif" />
+                    <img src="../static/images/src/winfo6.gif" />
+                    <img src="../static/images/src/winfo7.gif" />
+                </div>
+            </div>
+        </div>
+        <!--footer-->
+        <div class="det-footer bg-white clearfix">
+            <div class="det-footer-bar">
+                <span class="footer-follow">
+                    <i class="hj-icon"></i>
+                    <em>收藏</em>
+                </span>          
+                 <a href="cart.html">
+                     <i class="hj-icon"></i>
+                     <span>购物车</span>
+                     <em>2</em>
+                 </a>
+            </div>
+            <button type="button" class="now-buy btn btn-c" onClick="window.location='order_confirm.html'">立即购买</button>
+            <button class="add-cart btn btn-d">加入购物车</button>
+        </div>
+    </div>
+    <!--灰色遮罩层-->
+    <div class="popup-mask"></div>
+    <!--商品属性弹出层-->
+    <div class="popup property">
+        <i class="closed"></i>
+        <div class="al-img">
+            <img src="../static/images/src/img1.jpg">
+        </div>
+        <div class="al-info">
+            <p class="al-info-price">¥ 266.00</p>
+            <p>库存<em class="stock-num">9</em> 件</p>            
+        </div>
+        <div class="popup-con">
+            <div class="choose-type">
+                <h3>颜色</h3>
+                <div class="choose-type-list">
+                    <span class="choosed">红色</span>
+                    <span>绿色</span>
+                    <span>蓝色</span>
+                    <span>黄色</span>
+                </div>
+            </div>            
+            <div class="choose-type cleargix">
+                <h3 class="hejia-fl">数量</h3>
+                <div class="choose-num hejia-fr">
+                    <span class="num-cut"><i></i></span>
+                    <input type="text" value="1" />
+                    <span class="num-add"><i></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="btn-bottom">
+            <button class="now-buy btn btn-c">立即购买</button>
+            <button class="add-cart btn btn-d">加入购物车</button>
+        </div>
+    </div>
+    <!--地址弹出层-->
+    <div class="popup po-addr">
+        <i class="closed"></i>
+        <h2>配送至</h2>
+        <ul class="po-addr-body">
+            <li class="selected">
+                <i></i>
+                <span>安徽省合肥市庐阳区三里庵街道，人民大厦
+三期28号楼</span>
+                <em></em>
+            </li>
+            <li>
+                <i></i>
+                <span>安徽省合肥市蜀山区新林小区190-3室</span>
+                <em></em>
+            </li>
+        </ul>
+        <div class="btn-bottom express-area">
+            <a class="else-addr" id="expressArea">添加新的地址</a>
+        </div>
+    </div>
+    <!--地区弹出层--添加新的地址-->
+    <section id="areaLayer" class="express-area-box">
+        <header>
+            <h3>配送至</h3>
+            <a id="backUp" class="back" href="javascript:void(0)" title="返回"></a>
+            <a id="closeArea" class="close" href="javascript:void(0)" title="关闭"></a>
+        </header>
+        <article id="areaBox">
+            <ul id="areaList" class="area-list"></ul>
+        </article>
+    </section>
+  </body>
+  <script>
+    $(document).ready(function(){
+		var swiper = new Swiper('.pro-slider', {
+            pagination: '.cooperation_page',
+            paginationClickable: true,
+            loop:false,
+            autoplay: 6000
+        });
+        //关闭弹出层
+        closedPopup();
+        //图片切换
+        var swiper = new Swiper('.det-slid', {
+            pagination: '.det-slid-num',
+            paginationType: 'fraction'
+        });        
+        //选择属性
+        $(".choose-type-list span").click(function(){
+            $(this).addClass("choosed");
+            $(this).siblings().removeClass("choosed");
+        });
+        //属性弹出层
+        $(".set-meal").click(function(){
+            $(".popup-mask,.property").show();
+            $("html").addClass("popup-move");
+        });
+        //配送地址弹出层
+        $(".adr-con").click(function(){
+            $(".popup-mask,.po-addr").show();
+            $("html").addClass("popup-move");
+        });        
+		//收藏
+        $(".footer-follow").click(function(){
+            $(".footer-follow i").toggleClass("checked");
+        });
+        //商品数量
+        var valNum=parseInt($(".choose-num input").val());
+        var stockNum=parseInt($(".stock-num").text());
+        $(".num-add").click(function(){
+            if(valNum<stockNum){
+                valNum++;
+                $(".choose-num input").val(valNum)
+            }
+        });
+        $(".num-cut").click(function(){
+            if(valNum>1){
+                valNum--;
+                $(".choose-num input").val(valNum)
+            }
+        });
+        //选择配送地址
+        $(".po-addr-body li").click(function(){
+            $(this).addClass("selected");
+            $(this).siblings().removeClass("selected")
+        });
+        //选择省市区
+        $(".else-addr").click(function(){
+            $(".popup-mask,.popup").hide();
+            $("html").removeClass();
+            $(".popup-mask,.express-area-box").show();
+        });
+         //关闭省市区
+        $(".popup-mask").click(function(){
+            $(".popup-mask,.popup").hide();
+            $("html").removeClass();
+            $(".popup-mask,.express-area-box").hide();
+        });
+    })
+  </script>
+    <script src="../static/js/jquery.area.js"></script>
+</html>

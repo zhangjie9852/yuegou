@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<title>选择优惠券</title>
+<link href="../static/css/comm.css" rel="stylesheet" type="text/css">
+<link href="../static/css/main.css" rel="stylesheet" type="text/css">
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/main.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+    <div class="coup-box">
+    	<ul>
+        	<li>
+            	<div class="hejia-fl coup-l">
+                	<div class="coup-amount">￥<span>200</span></div>
+                    <div>满5000元可用</div>
+                </div>
+                <div class="coup-r">
+                	<div class="coup-desc">此类商品使用</div>
+                    <div class="coup-date">2017-04-01 至 2017-04-30</div>
+                    <div class="coup-expried">29天后过期</div>
+                </div>
+            </li>
+            <li>
+            	<div class="hejia-fl coup-l">
+                	<div class="coup-amount">￥<span>100</span></div>
+                    <div>满3000元可用</div>
+                </div>
+                <div class="coup-r">
+                	<div class="coup-desc">此类商品使用</div>
+                    <div class="coup-date">2017-04-01 至 2017-04-30</div>
+                    <div class="coup-expried">29天后过期</div>
+                </div>
+            </li>
+            <li>
+            	<div class="hejia-fl coup-l">
+                	<div class="coup-amount">￥<span>50</span></div>
+                    <div>满1000元可用</div>
+                </div>
+                <div class="coup-r">
+                	<div class="coup-desc">此类商品使用</div>
+                    <div class="coup-date">2017-04-01 至 2017-04-30</div>
+                    <div class="coup-expried">29天后过期</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="conf-box"><a href="javascript:history.go(-1)" class="btn btn-a">确定</a></div>
+</div>
+<script>
+$(function(){
+	$(".coup-box ul li").click(function(){
+		$(this).addClass("selected").siblings().removeClass("selected");
+	})
+})
+</script>
+</body>
+</html>
